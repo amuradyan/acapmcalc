@@ -7,15 +7,15 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center'
+    padding: theme.spacing(5),
+    textAlign: 'center',
   }
 }));
 
 const Header = () => {
   const classes = useStyles()
 
-  return <Paper className={classes.paper} square={true}>acapm calculator</Paper>
+  return <Paper className={classes.paper} square={true}><b>acapm</b> calculator</Paper>
 }
 
 export default Header;
