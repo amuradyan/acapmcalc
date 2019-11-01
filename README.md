@@ -5,8 +5,7 @@ This is a simple calculator web app.
 It looks something like this:  
 ![acapm calculator UI](./mockups/acapm.png)
 
-and supports *addition*, *subtraction*, *multiplication* and *division*.
-It allows for negative/positive and fractional values.
+Even though you can see the sign flip button, multiplication, division and fractions on its' UI it only supports *addition*, *subtraction*.
 
 Really simple, nothing fancy.
 
