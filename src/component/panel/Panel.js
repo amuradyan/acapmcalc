@@ -2,6 +2,9 @@ import Grid from '@material-ui/core/Grid'
 import React from 'react'
 import CB from '../calc_button/CalcButton'
 import pristineState from '../util/state'
+import axios from 'axios'
+
+const axiosInstance = axios.create({baseURL: 'http://localhost:8080/'})
 
 const replaceAll = (str, search, replacement) => {
   return str.split(search).join(replacement);
@@ -30,7 +33,7 @@ const Panel = ({ state, setState }) => {
     console.log(state);
   }
 
-  const handleOperator = (operator) => {
+  async function handleOperator(operator) {
     const oldExpression = state.expression
 
     switch (operator) {
@@ -61,12 +64,22 @@ const Panel = ({ state, setState }) => {
         if (oldExpression.endsWith('+') || oldExpression.endsWith('-'))
           finalExpression = finalExpression.replace(/.$/, '')
 
-        const memory = eval(finalExpression)
-        const finalState = {
-          ...pristineState,
-          memory
+        const res = await axiosInstance.get('/values', {
+          params: {
+            expression: finalExpression
+          }
+        })
+
+        if(res.status === 200) {
+          // const memory = eval(finalExpression)
+          const finalState = {
+            ...pristineState,
+            memory: res.data
+          }
+          setState(finalState)
+        } else {
+          console.log(res.statusText);
         }
-        setState(finalState)
         break;
       default:
         break;
