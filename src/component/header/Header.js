@@ -1,6 +1,6 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(5),
     textAlign: 'center',
   }
-}));
+}))
 
 const Header = () => {
   const classes = useStyles()
@@ -18,4 +18,4 @@ const Header = () => {
   return <Paper className={classes.paper} square={true}><b>acapm</b> calculator</Paper>
 }
 
-export default Header;
+export default Header
